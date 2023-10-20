@@ -28,15 +28,6 @@ server {
     root /app/www/;
     index index.html;
   }
-
-  location /api {
-    # 使用环境变量，不把反向代理写死
-    proxy_pass $SERVER_URL;
-    proxy_set_header Host \$host;
-    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP \$remote_addr;
-  }
-
 }
 
 EOF
