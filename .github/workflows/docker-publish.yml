@@ -1,7 +1,7 @@
 name: Docker
 on:
   push:
-    branches: ['master']
+    branches: [ 'master' ]
 
 env:
   REGISTRY: ghcr.io
@@ -40,9 +40,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and push Docker Image
+      - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
@@ -55,12 +55,4 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      - name: SSH Command
-        uses: D3rHase/ssh-command-action@v0.2.1
-        with:
-          HOST: ${{ secrets.SERVER_IP }}
-          PORT: 22
-          USER: root
-          PRIVATE_SSH_KEY: ${{ secrets.PRIVATE_SSH_KEY }}
-          COMMAND: cd /root && ./run.sh
+    
