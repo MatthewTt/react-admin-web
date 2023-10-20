@@ -33,7 +33,7 @@ WORKDIR /data/web
 RUN mkdir -p /data/www
 
 # 拷贝dist文件夹到nginx
-COPY --from=builder /data/web/dist /data/web
+COPY --from=builder /data/web/dist /data/www
 
 # 暴露端口 443 支持https
 EXPOSE 80
