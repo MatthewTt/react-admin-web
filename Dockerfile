@@ -36,7 +36,7 @@ RUN mkdir -p /data/www
 COPY --from=builder /data/web/dist /data/web
 
 # 暴露端口 443 支持https
-EXPOSE 80
+EXPOSE 8074
 EXPOSE 443
 
 # 如果镜像中存在nginx配置，先删除
