@@ -25,7 +25,7 @@ server {
     if (\$request_filename ~* .*\.(?:htm|html)$) {
       add_header Cache-Control "private, no-store, no-cache, must-revalidate, proxy-revalidate";
     }
-    root /app/www/;
+    root /data/www/;
     index index.html;
   }
 }
